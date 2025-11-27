@@ -3,7 +3,7 @@
   "logo": {
     "type": "file",
     "source": "~/.config/omarchy/branding/about.txt",
-    "color": { "1": "green" },
+    "color": { "1": "\u001b[38;2;143;75;255m" }, // Amethyst
     "padding": {
       "top": 2,
       "right": 6,
@@ -14,131 +14,132 @@
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
+      "format": "\u001b[38;2;59;13;58m┌──────────────────────Hardware──────────────────────┐\u001b[0m"
     },
     {
       "type": "host",
       "key": " PC",
-      "keyColor": "green"
+      "keyColor": "\u001b[38;2;181;138;255m" // Medium Purple
     },
     {
       "type": "cpu",
       "key": "│ ├",
       "showPeCoreCount": true,
-      "keyColor": "green"
+      "keyColor": "\u001b[38;2;181;138;255m" // Medium Purple
     },
     {
       "type": "gpu",
       "key": "│ ├",
       "detectionMethod": "pci",
-      "keyColor": "green"
+      "keyColor": "\u001b[38;2;181;138;255m" // Medium Purple
     },
     {
       "type": "display",
       "key": "│ ├󱄄",
-      "keyColor": "green"
+      "keyColor": "\u001b[38;2;181;138;255m" // Medium Purple
     },
     {
       "type": "disk",
       "key": "│ ├󰋊",
-      "keyColor": "green"
+      "keyColor": "\u001b[38;2;181;138;255m" // Medium Purple
     },
     {
       "type": "memory",
       "key": "│ ├",
-      "keyColor": "green"
+      "keyColor": "\u001b[38;2;181;138;255m" // Medium Purple
     },
     {
       "type": "swap",
       "key": "└ └󰓡 ",
-      "keyColor": "green"
+      "keyColor": "\u001b[38;2;181;138;255m" // Medium Purple
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[38;2;59;13;58m└────────────────────────────────────────────────────┘\u001b[0m"
     },
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+      "format": "\u001b[38;2;59;13;58m┌──────────────────────Software──────────────────────┐\u001b[0m"
     },
     {
       "type": "command",
       "key": "\ue900 OS",
-      "keyColor": "blue",
+      "keyColor": "\u001b[38;2;214;179;255m", // Lilac
       "text": "version=$(omarchy-version); echo \"Omarchy $version\""
     },
     {
       "type": "command",
       "key": "│ ├󰘬",
-      "keyColor": "blue",
+      "keyColor": "\u001b[38;2;214;179;255m", // Lilac
       "text": "branch=$(omarchy-version-branch); echo \"$branch\""
     },
     {
       "type": "kernel",
       "key": "│ ├",
-      "keyColor": "blue"
+      "keyColor": "\u001b[38;2;214;179;255m" // Lilac
     },
     {
       "type": "wm",
       "key": "│ ├",
-      "keyColor": "blue"
+      "keyColor": "\u001b[38;2;214;179;255m" // Lilac
     },
     {
       "type": "de",
       "key": " DE",
-      "keyColor": "blue"
+      "keyColor": "\u001b[38;2;214;179;255m" // Lilac
     },
     {
       "type": "terminal",
       "key": "│ ├",
-      "keyColor": "blue"
+      "keyColor": "\u001b[38;2;214;179;255m" // Lilac
     },
     {
       "type": "packages",
       "key": "│ ├󰏖",
-      "keyColor": "blue"
+      "keyColor": "\u001b[38;2;214;179;255m" // Lilac
     },
     {
       "type": "wmtheme",
       "key": "│ ├󰉼",
-      "keyColor": "blue"
+      "keyColor": "\u001b[38;2;214;179;255m" // Lilac
     },
     {
       "type": "command",
       "key": "│ ├󰸌",
-      "keyColor": "blue",
-      "text": "theme=$(omarchy-theme-current); echo -e \"$theme \\e[38m●\\e[37m●\\e[36m●\\e[35m●\\e[34m●\\e[33m●\\e[32m●\\e[31m●\""
+      "keyColor": "\u001b[38;2;214;179;255m", // Lilac
+      "text": "theme=$(omarchy-theme-current); echo -e \"$theme \\e[38;2;255;255;255m●\\e[38;2;255;0;0m●\\e[38;2;255;165;0m●\\e[38;2;255;255;0m●\\e[38;2;0;255;0m●\\e[38;2;0;255;255m●\\e[38;2;0;0;255m●\\e[38;2;128;0;128m●\""
     },
     {
       "type": "terminalfont",
       "key": "└ └",
-      "keyColor": "blue"
+      "keyColor": "\u001b[38;2;214;179;255m" // Lilac
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[38;2;59;13;58m└────────────────────────────────────────────────────┘\u001b[0m"
     },
     "break",
     {
       "type": "custom",
-      "format": "\u001b[90m┌────────────────────Uptime / Age────────────────────┐"
+      "format": "\u001b[38;2;59;13;58m┌────────────────────Uptime / Age────────────────────┐\u001b[0m"
     },
     {
       "type": "command",
       "key": "󱦟 OS Age",
-      "keyColor": "magenta",
+      "keyColor": "\u001b[38;2;106;27;154m", // Deep Violet
       "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
     },
     {
       "type": "uptime",
       "key": "󱫐 Uptime",
-      "keyColor": "magenta"
+      "keyColor": "\u001b[38;2;106;27;154m" // Deep Violet
     },
     {
       "type": "custom",
-      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+      "format": "\u001b[38;2;59;13;58m└────────────────────────────────────────────────────┘\u001b[0m"
     },
     "break"
   ]
 }
+

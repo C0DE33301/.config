@@ -1,27 +1,95 @@
+# ──────────────────────────────────────────────────────────────────────
+# Ghostty theme – “Omarchy Purple”
+# Designed to complement the FastFetch purple palette:
+#   • Amethyst   #8F4BFF
+#   • Lilac      #D6B3FF
+#   • Medium‑Purple #B58AFF
+#   • Deep‑Violet   #6A1B9A
+#   • Eggplant      #3B0D3A
+# ──────────────────────────────────────────────────────────────────────
+
+# ----------------------------------------------------------------------
 # Dynamic theme colors
-config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
+# ----------------------------------------------------------------------
+# Base background – very dark gray so the bright purples stand out
+background = #101010
 
+# Selection (highlighted text) – a muted purple that’s easy on the eyes
+selection-background = #6d42a5
+
+# Cursor – bright enough to be seen but still purple‑themed
+cursor-color = #B58AFF
+
+# Foreground (default text) – light gray for good contrast
+foreground = #D0D0D0
+
+# ANSI 16‑color palette (used by many CLI programs)
+# black (dark gray)
+palette = 0=#1E1E1E
+# red (soft coral for errors)
+palette = 1=#FF6F61
+# green → repurposed as Amethyst
+palette = 2=#8F4BFF
+# yellow → Lilac
+palette = 3=#D6B3FF
+# blue → Deep Violet
+palette = 4=#6A1B9A
+# magenta → Medium Purple
+palette = 5=#B58AFF
+# cyan → Eggplant (dark accent)
+palette = 6=#3B0D3A
+# white → light gray
+palette = 7=#D0D0D0
+# bright black (gray)
+palette = 8=#3B3B3B
+# bright red
+palette = 9=#FF8F80
+# bright green (lighter Amethyst)
+palette = 10=#CFA6FF
+# bright yellow (lighter Lilac)
+palette = 11=#E6CCFF
+# bright blue (lighter Deep Violet)
+palette = 12=#9C4DFF
+# bright magenta (lighter Medium Purple)
+palette = 13=#D6B3FF
+# bright cyan (lighter Eggplant)
+palette = 14=#5A2A5A
+# bright white
+palette = 15=#FFFFFF
+
+# ----------------------------------------------------------------------
 # Font
+# ----------------------------------------------------------------------
 font-family = "CaskaydiaMono Nerd Font"
-font-style = Regular
-font-size = 9
+font-style  = Regular
+font-size   = 9
 
+# ----------------------------------------------------------------------
 # Window
-window-theme = ghostty
+# ----------------------------------------------------------------------
+window-theme   = ghostty
 window-padding-x = 14
 window-padding-y = 14
-confirm-close-surface=false
+confirm-close-surface = false
 resize-overlay = never
 gtk-toolbar-style = flat
 
+# ----------------------------------------------------------------------
 # Cursor styling
-cursor-style = "block"
+# ----------------------------------------------------------------------
+cursor-style       = "block"
 cursor-style-blink = false
+# medium purple block
+cursor-color       = #B58AFF
 
-# Cursor styling + SSH session terminfo
-# (all shell integration options must be passed together)
+# ----------------------------------------------------------------------
+# Shell integration (SSH + cursor handling)
+# ----------------------------------------------------------------------
 shell-integration-features = no-cursor,ssh-env
 
+# ----------------------------------------------------------------------
 # Keyboard bindings
+# ----------------------------------------------------------------------
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
+
