@@ -1,0 +1,159 @@
+// vim: fdm=marker
+
+configuration {
+  modes: "window,drun,run,ssh";
+  font: "JetBrainsMono NF 18";
+  drun-display-format: "{name}";
+}
+
+/* ------------------------------------------------------------------ */
+/* Global colors */
+* {
+  /* General */
+  bg: #101010;          /* Very Dark Gray (background) */
+  bgt: #10101095;       /* Slightly transparent dark gray */
+  t: transparent;
+  fg: #D0D0D0;          /* Light Gray (foreground text) */
+
+  selected-bg: #CFA6FF; /* Bright Amethyst (selected background) */
+  selected-fg: #101010; /* Very Dark Gray (selected text) */
+
+  /* Window states */
+  active: #8F4BFF;      /* Amethyst (active items) */
+  urgent: #FF6F61;      /* Soft Red (urgent alerts) */
+}
+
+/* ------------------------------------------------------------------ */
+/* Window appearance */
+window {
+  fullscreen: true;
+  padding: 35% 30%;          /* Adjust to resize Rofi window */
+  transparency: "real";
+  background-color: @bgt;    /* Transparent background */
+  border-color: #3B0D3A;     /* Eggplant border */
+}
+
+/* ------------------------------------------------------------------ */
+/* List view */
+listview {
+  border: 0 0 0 0;
+  padding: 23 0 0;
+  scrollbar: true;
+}
+
+/* ------------------------------------------------------------------ */
+/* Scrollbar */
+scrollbar {
+  width:        4px;        /* Scrollbar width */
+  border:       0;          /* No border */
+  handle-color: #9C4DFF;    /* Bright Deep Violet handle */
+  handle-width: 8px;
+  padding:      0 5;
+}
+
+/* ------------------------------------------------------------------ */
+/* Entry field */
+entry {
+  placeholder: "";
+  text-color: #E6CCFF;      /* Bright Lilac for entry text */
+}
+
+/* ------------------------------------------------------------------ */
+/* Prompt textbox */
+textbox {
+  text-color: #D6B3FF;      /* Lilac for prompt text */
+}
+
+/* ------------------------------------------------------------------ */
+/* Menu elements */
+element {
+  border:  0;
+  padding: 2px;
+}
+
+/* Normal (unselected) items */
+element.normal.normal {
+  background-color: @t;
+  text-color:       #B58AFF;   /* Medium Purple */
+}
+element.normal.urgent {
+  background-color: @t;
+  text-color:       @urgent;   /* Soft Red */
+}
+element.normal.active {
+  background-color: @t;
+  text-color:       #6A1B9A;   /* Deep Violet */
+}
+
+/* Selected items */
+element.selected.normal {
+  background-color: @selected-bg; /* Bright Amethyst */
+  text-color:       @selected-fg; /* Very Dark Gray */
+}
+element.selected.urgent {
+  background-color: @selected-bg;
+  text-color:       @urgent;     /* Soft Red */
+}
+element.selected.active {
+  background-color: @selected-bg;
+  text-color:       #5A2A5A;   /* Bright Eggplant */
+}
+
+/* Alternate style (e.g., alternate rows) */
+element.alternate.normal {
+  background-color: @t;
+  text-color:       #D6B3FF;   /* Lilac */
+}
+element.alternate.urgent {
+  background-color: @t;
+  text-color:       @urgent;
+}
+element.alternate.active {
+  background-color: @t;
+  text-color:       #CFA6FF;   /* Bright Amethyst */
+}
+
+/* ------------------------------------------------------------------ */
+/* Sidebar */
+sidebar {
+  border:       2px 0 0;   /* Left border only */
+  border-color: #8F4BFF;    /* Amethyst */
+}
+
+/* ------------------------------------------------------------------ */
+/* Input bar (prompt line) */
+inputbar {
+  spacing:    0;
+  text-color: #9C4DFF;      /* Bright Deep Violet */
+  padding:    2px;
+  children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
+}
+
+/* ------------------------------------------------------------------ */
+/* Prompt, case indicator, button and entry common styling */
+case-indicator,
+entry,
+prompt,
+button {
+  spacing:    0;
+  text-color: #E6CCFF;      /* Bright Lilac */
+}
+
+/* ------------------------------------------------------------------ */
+/* Selected button */
+button.selected {
+  background-color: #101010; /* Very Dark Gray */
+  text-color:       #8F4BFF; /* Amethyst */
+}
+
+/* ------------------------------------------------------------------ */
+/* Separator between prompt and entry */
+textbox-prompt-sep {
+  expand:     false;
+  str:        ":";
+  text-color: #6A1B9A;      /* Deep Violet */
+  margin:     0 0.3em 0 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* End of configuration */
