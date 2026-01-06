@@ -1,0 +1,343 @@
+# -------------------------------------------------
+# Basic i3 settings
+# -------------------------------------------------
+set $mod Mod4
+
+default_border pixel 1
+default_floating_border normal
+hide_edge_borders none
+
+bindsym $mod+u border none
+bindsym $mod+y border pixel 1
+bindsym $mod+n border normal
+
+font xft:URWGothic-Book 11
+floating_modifier $mod
+
+# -------------------------------------------------
+# Launchers & basic commands
+# -------------------------------------------------
+bindsym $mod+Return exec ghostty
+bindsym $mod+w kill
+bindsym $mod+d exec rofi -show run
+bindsym $mod+z exec --no-startup-id morc_menu
+
+# -------------------------------------------------
+# Sound section
+# -------------------------------------------------
+exec --no-startup-id volumeicon
+bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+
+# -------------------------------------------------
+# Application shortcuts
+# -------------------------------------------------
+bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+F2 exec palemoon
+bindsym $mod+F3 exec pcmanfm
+bindsym $mod+Shift+F3 exec pcmanfm_pkexec
+bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+t exec --no-startup-id pkill picom
+bindsym $mod+Ctrl+t exec --no-startup-id picom -b
+bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym Print exec --no-startup-id i3-scrot
+bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+# -------------------------------------------------
+# Focus & movement
+# -------------------------------------------------
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# -------------------------------------------------
+# Workspace navigation
+# -------------------------------------------------
+workspace_auto_back_and_forth yes
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+
+bindsym $mod+h split h; exec notify-send 'tile horizontally'
+bindsym $mod+v split v; exec notify-send 'tile vertically'
+bindsym $mod+q split toggle
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+s sticky toggle
+bindsym $mod+a focus parent
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
+# -------------------------------------------------
+# Workspace names (1‑8)
+# -------------------------------------------------
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+
+# -------------------------------------------------
+# Floating rules (examples)
+# -------------------------------------------------
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="fpakman"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [title="About Pale Moon"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
+for_window [urgent=latest] focus
+
+# -------------------------------------------------
+# Reload / restart / exit
+# -------------------------------------------------
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# -------------------------------------------------
+# System shutdown / lock / suspend menu
+# -------------------------------------------------
+bindsym $mod+0 mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# -------------------------------------------------
+# Resize mode (mouse/keyboard)
+# -------------------------------------------------
+bindsym $mod+r mode "resize"
+mode "resize" {
+    # shrink / grow with hjkl (vim style)
+    bindsym j resize shrink width 5 px or 5 ppt
+    bindsym k resize grow height 5 px or 5 ppt
+    bindsym l resize shrink height 5 px or 5 ppt
+    bindsym semicolon resize grow width 5 px or 5 ppt
+
+    # same with arrow keys (larger steps)
+    bindsym Left  resize shrink width 10 px or 10 ppt
+    bindsym Down  resize grow height 10 px or 10 ppt
+    bindsym Up    resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # exit resize mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# -------------------------------------------------
+# Lock screen shortcut
+# -------------------------------------------------
+bindsym $mod+9 exec --no-startup-id blurlock
+
+# -------------------------------------------------
+# Autostart applications
+# -------------------------------------------------
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+exec --no-startup-id manjaro-hello
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+exec --no-startup-id clipit
+exec --no-startup-id start_conky_maia
+exec --no-startup-id xautolock -time 10 -locker blurlock
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+
+# -------------------------------------------------
+# Xresources integration (terminal colors)
+# -------------------------------------------------
+set_from_resource $term_background background
+set_from_resource $term_foreground foreground
+set_from_resource $term_color0     #101010  # Very Dark Gray
+set_from_resource $term_color1     #FF6F61  # Soft Red for errors
+set_from_resource $term_color2     #8F4BFF  # Amethyst
+set_from_resource $term_color3     #D6B3FF  # Lilac
+set_from_resource $term_color4     #B58AFF  # Medium Purple
+set_from_resource $term_color5     #6A1B9A  # Deep Violet
+set_from_resource $term_color6     #3B0D3A  # Eggplant
+set_from_resource $term_color7     #D0D0D0  # Light Gray for titles
+set_from_resource $term_color8     #1E1E1E  # Dark Gray (ANSI Black)
+set_from_resource $term_color9     #FF6F61  # Soft Red for errors (duplicate)
+set_from_resource $term_color10    #CFA6FF  # Bright Amethyst
+set_from_resource $term_color11    #E6CCFF  # Bright Lilac
+set_from_resource $term_color12    #9C4DFF  # Bright Deep Violet
+set_from_resource $term_color13    #D6B3FF  # Bright Medium Purple
+set_from_resource $term_color14    #5A2A5A  # Bright Eggplant
+set_from_resource $term_color15    #FFFFFF  # Bright White (highlights)
+
+# -------------------------------------------------
+# i3bar / i3status configuration
+# -------------------------------------------------
+bar {
+    i3bar_command i3bar
+    status_command i3status --config ~/.config/i3status/config
+    position top
+    bindsym button4 nop
+    bindsym button5 nop
+    strip_workspace_numbers yes
+
+    colors {
+        background #101010      # Very Dark Gray for i3bar background
+        statusline #D0D0D0      # Light Gray for statusline text
+        separator  #3B0D3A      # Eggplant for separator color
+
+        # focused_workspace  text   background border
+	focused_workspace  #8F4BFF #8F4BFF #D0D0D0  # Amethyst for focused workspace
+        active_workspace   #B58AFF #B58AFF #D0D0D0  # Medium Purple for active workspace
+        inactive_workspace #6A1B9A #6A1B9A #D0D0D0  # Deep Violet for inactive workspace
+        binding_mode       #B58AFF #B58AFF #D0D0D0  # Same as active workspace
+        urgent_workspace   #FF6F61 #FF6F61 #FFFFFF  # Soft Red for urgent workspace
+    }
+}
+
+# -------------------------------------------------
+# Toggle i3bar visibility
+# -------------------------------------------------
+bindsym $mod+m bar mode toggle
+
+# -------------------------------------------------
+# Client (window) colors
+# -------------------------------------------------
+client.background       #2B2C2B
+
+# class                 border   backgr.  text      indic.   child_border
+# Amethyst colors for focused
+client.focused          #8F4BFF  #8F4BFF  #D0D0D0   #D6B3FF
+# Medium Purple for inactive focused
+client.focused_inactive #B58AFF  #B58AFF  #D0D0D0   #D6B3FF
+# Eggplant for unfocused
+client.unfocused        #3B0D3A  #3B0D3A  #D0D0D0   #454948
+# Soft red for urgent
+client.urgent           #FF6F61  #FDF6E3  #1ABC9C   #268BD2
+# ...
+client.placeholder      #000000  #0c0c0c  #ffffff   #000000
+# Very Dark Gray for client background 
+client.background       #101010  #101010  #D0D0D0   #3B0D3A
+
+# -------------------------------------------------
+# Gaps configuration (i3-gaps)
+# -------------------------------------------------
+gaps inner 14
+gaps outer -2
+smart_borders on
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+    bindsym o mode "$mode_gaps_outer"
+    bindsym i mode "$mode_gaps_inner"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
+exec --no-startup-id feh --bg-scale --zoom fill ~/.config/i3/background/default.jpeg
