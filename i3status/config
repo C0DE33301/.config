@@ -14,6 +14,7 @@ general {
 order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
+order += "path_exists OpenVPN"
 order += "battery all"
 order += "disk /"
 order += "load"
@@ -28,6 +29,13 @@ wireless _first_ {
 ethernet _first_ {
         format_up = "E: %ip (%speed)"
         format_down = "E: down"
+}
+
+path_exists OpenVPN {
+        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        path = "/proc/sys/net/ipv4/conf/tun0"
+        format = "%title: %status"
+        format_down = "OpenVPN: not connected"
 }
 
 battery all {
