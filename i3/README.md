@@ -2,7 +2,9 @@
 `~/.config/i3/config`
 ```
 bar {
+  ...
   status_command i3status --config ~/.config/i3status/config
+  ...
 }
 ```
 
@@ -23,8 +25,17 @@ bar {
     
     echo "Bar launched..."
     ```
+    - The config path, `polybar -c ~/.config/polybar/config.ini`
 1. `chmod +x ~/.config/polybar/launch.sh`
 1. `~/.config/i3/config`
+
+   Remove the bar function, ...
+   ```
+    bar {
+      status_command i3status --config ~/.config/i3status/config
+    }
+   ```
+   Add this line at the very end of the file, ...
    ```
    exec_always --no-startup-id ~/.config/polybar/launch.sh
    ```
